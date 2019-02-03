@@ -16,7 +16,7 @@ EXISTING_CHANNEL_ERR = 'A channel with name:'
 ALL_SYSDIG_ANNOTATIONS = [ 'sysdigTeamMembers', 'sysdigDashboards', 'sysdigAlertEmails', 'sysdigAlerts' ]
 K8S_CA_CRT_FILE_NAME = '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
 K8S_BEARER_TOKEN_FILE_NAME = '/var/run/secrets/kubernetes.io/serviceaccount/token'
-K8S_DEFAULT_DNS_NAME = 'kubernetes.default.svc'
+K8S_DEFAULT_DNS_NAME = 'kubernetes'
 
 class Logger(object):
     @staticmethod
@@ -421,5 +421,5 @@ class KubeURLParser(object):
                 sys.exit(1)
             if os.path.exists(K8S_CA_CRT_FILE_NAME) and os.stat(K8S_CA_CRT_FILE_NAME).st_size > 0:
                 return requests.get('https://' + K8S_DEFAULT_DNS_NAME + ':' + kube_service_port + endpoint,
-                                    verify = False,
+                                    verify = K8S_CA_CRT_FILE_NAME,
                                     headers=headers)
