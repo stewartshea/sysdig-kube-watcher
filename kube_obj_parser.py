@@ -16,7 +16,7 @@ EXISTING_CHANNEL_ERR = 'A channel with name:'
 ALL_SYSDIG_ANNOTATIONS = [ 'sysdigTeamMembers', 'sysdigDashboards', 'sysdigAlertEmails', 'sysdigAlerts' ]
 K8S_CA_CRT_FILE_NAME = '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
 K8S_BEARER_TOKEN_FILE_NAME = '/var/run/secrets/kubernetes.io/serviceaccount/token'
-K8S_DEFAULT_DNS_NAME = 'kubernetes.devault.svc'
+K8S_DEFAULT_DNS_NAME = 'kubernetes.default.svc'
 
 class Logger(object):
     @staticmethod
