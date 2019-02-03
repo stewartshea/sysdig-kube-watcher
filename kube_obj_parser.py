@@ -405,7 +405,7 @@ class KubeURLParser(object):
 
     def _kube_get(self, url, endpoint):
         if url:
-            return requests.get(url + endpoint, verify = False)
+            return requests.get(url + endpoint)
         else:
             kube_service_port = os.getenv('KUBERNETES_SERVICE_PORT_HTTPS')
             if kube_service_port is None:
