@@ -71,6 +71,11 @@ while True:
         urlparser_depl.parse(KUBE_URL, '/apis/extensions/v1beta1/deployments')
 
         #
+        # Parse deploymentConfigs
+        #
+        urlparser_depl.parse(KUBE_URL, '/apis/apps.openshift.io/v1/deploymentconfigs')
+
+        #
         # Parse the services
         #
         urlparser_srvc.parse(KUBE_URL, '/api/v1/services')
