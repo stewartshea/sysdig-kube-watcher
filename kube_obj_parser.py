@@ -405,7 +405,9 @@ class KubeURLParser(object):
 
     def _kube_get(self, url, endpoint):
         if url:
-            return requests.get(url + endpoint)
+            with open(K8S_BEARER_TOKEN_FILE_NAME, 'r') as tokenfile:
+                    headers = {'Authorization': 'Bearer ' + tokenfile.read() }
+            return requests.get(url + endpoint, headers = headers )
         else:
             kube_service_port = os.getenv('KUBERNETES_SERVICE_PORT_HTTPS')
             if kube_service_port is None:
